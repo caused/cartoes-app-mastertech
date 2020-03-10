@@ -1,12 +1,14 @@
 package com.mastertech.cartoesapp.dto;
 
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 public class ClienteDTO {
 
 	private Long id;
 	
-	@NotNull
+	@NotNull(message = "Nome do cliente não pode ser nulo")
+	@NotBlank (message = "Favor informar o nome do cliente")
 	private String nome;
 	
 	public Long getId() {

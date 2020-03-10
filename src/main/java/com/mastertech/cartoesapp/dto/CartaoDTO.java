@@ -1,9 +1,17 @@
 package com.mastertech.cartoesapp.dto;
 
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 public class CartaoDTO {
 
 	private Long id;
+	
+	@NotNull(message = "Id do cliente não pode ser nulo")
 	private Long clienteId;
+	
+	@NotNull(message = "Número do cartão não pode ser nulo")
+	@NotBlank(message = "Favor informar um numero de cartao")
 	private String numero;
 	private Boolean ativo;
 	

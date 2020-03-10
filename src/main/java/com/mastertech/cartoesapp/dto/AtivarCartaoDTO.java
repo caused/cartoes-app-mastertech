@@ -1,0 +1,16 @@
+package com.mastertech.cartoesapp.dto;
+
+public class AtivarCartaoDTO {
+
+	private Boolean ativo;
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	
+}
