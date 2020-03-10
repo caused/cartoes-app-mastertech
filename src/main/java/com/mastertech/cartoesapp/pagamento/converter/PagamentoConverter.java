@@ -1,12 +1,12 @@
-package com.mastertech.cartoesapp.converter;
+package com.mastertech.cartoesapp.pagamento.converter;
 
 import org.springframework.stereotype.Component;
 
-import com.mastertech.cartoesapp.dto.PagamentoDTO;
-import com.mastertech.cartoesapp.entity.CartaoEntity;
-import com.mastertech.cartoesapp.entity.PagamentoEntity;
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
 import com.mastertech.cartoesapp.exception.CartaoInativoException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
+import com.mastertech.cartoesapp.pagamento.dto.PagamentoDTO;
+import com.mastertech.cartoesapp.pagamento.entity.PagamentoEntity;
 
 @Component
 public class PagamentoConverter {

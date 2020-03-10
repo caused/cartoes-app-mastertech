@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.entity;
+package com.mastertech.cartoesapp.cartao.entity;
 
 import java.util.List;
 
@@ -11,6 +11,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
+import com.mastertech.cartoesapp.pagamento.entity.PagamentoEntity;
 
 @Table (name = "cartao")
 @Entity

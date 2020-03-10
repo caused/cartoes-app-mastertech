@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.controller;
+package com.mastertech.cartoesapp.cartao.controller;
 
 import javax.validation.Valid;
 
@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mastertech.cartoesapp.converter.CartaoConverter;
-import com.mastertech.cartoesapp.dto.AtivarCartaoDTO;
-import com.mastertech.cartoesapp.dto.CartaoDTO;
-import com.mastertech.cartoesapp.entity.CartaoEntity;
+import com.mastertech.cartoesapp.cartao.converter.CartaoConverter;
+import com.mastertech.cartoesapp.cartao.dto.AtivarCartaoDTO;
+import com.mastertech.cartoesapp.cartao.dto.CartaoDTO;
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
+import com.mastertech.cartoesapp.cartao.service.CartaoService;
 import com.mastertech.cartoesapp.exception.CartaoExistenteException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
 import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
-import com.mastertech.cartoesapp.service.CartaoService;
 
 @RestController
 @RequestMapping("/cartao")

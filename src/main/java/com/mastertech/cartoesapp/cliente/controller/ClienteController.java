@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.controller;
+package com.mastertech.cartoesapp.cliente.controller;
 
 import javax.validation.Valid;
 
@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mastertech.cartoesapp.converter.ClienteConverter;
-import com.mastertech.cartoesapp.dto.ClienteDTO;
-import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.converter.ClienteConverter;
+import com.mastertech.cartoesapp.cliente.dto.ClienteDTO;
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.service.ClienteService;
 import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
-import com.mastertech.cartoesapp.service.ClienteService;
 
 @RestController
 @RequestMapping("/cliente")

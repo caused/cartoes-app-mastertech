@@ -1,16 +1,17 @@
-package com.mastertech.cartoesapp.service;
+package com.mastertech.cartoesapp.pagamento.service;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.mastertech.cartoesapp.converter.PagamentoConverter;
-import com.mastertech.cartoesapp.dto.PagamentoDTO;
-import com.mastertech.cartoesapp.entity.CartaoEntity;
-import com.mastertech.cartoesapp.entity.PagamentoEntity;
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
+import com.mastertech.cartoesapp.cartao.service.CartaoService;
 import com.mastertech.cartoesapp.exception.CartaoInativoException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
-import com.mastertech.cartoesapp.repository.PagamentoRepository;
+import com.mastertech.cartoesapp.pagamento.converter.PagamentoConverter;
+import com.mastertech.cartoesapp.pagamento.dto.PagamentoDTO;
+import com.mastertech.cartoesapp.pagamento.entity.PagamentoEntity;
+import com.mastertech.cartoesapp.pagamento.repository.PagamentoRepository;
 
 @Service
 public class PagamentoService {

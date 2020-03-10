@@ -1,12 +1,12 @@
-package com.mastertech.cartoesapp.service;
+package com.mastertech.cartoesapp.cliente.service;
 
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.repository.ClienteRepository;
 import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
-import com.mastertech.cartoesapp.repository.ClienteRepository;
 
 @Service
 public class ClienteService {

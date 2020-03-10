@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.dto;
+package com.mastertech.cartoesapp.cartao.dto;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;

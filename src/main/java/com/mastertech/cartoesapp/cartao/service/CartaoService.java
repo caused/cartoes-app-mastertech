@@ -1,17 +1,18 @@
-package com.mastertech.cartoesapp.service;
+package com.mastertech.cartoesapp.cartao.service;
 
 import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.mastertech.cartoesapp.dto.AtivarCartaoDTO;
-import com.mastertech.cartoesapp.entity.CartaoEntity;
-import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cartao.dto.AtivarCartaoDTO;
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
+import com.mastertech.cartoesapp.cartao.repository.CartaoRepository;
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.service.ClienteService;
 import com.mastertech.cartoesapp.exception.CartaoExistenteException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
 import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
-import com.mastertech.cartoesapp.repository.CartaoRepository;
 
 @Service
 public class CartaoService {

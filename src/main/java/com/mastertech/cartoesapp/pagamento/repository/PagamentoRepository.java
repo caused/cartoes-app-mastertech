@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.repository;
+package com.mastertech.cartoesapp.pagamento.repository;
 
 import java.util.List;
 
@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.lang.Nullable;
 
-import com.mastertech.cartoesapp.entity.PagamentoEntity;
+import com.mastertech.cartoesapp.pagamento.entity.PagamentoEntity;
 
 public interface PagamentoRepository extends JpaRepository<PagamentoEntity, Long>{
 

@@ -1,9 +1,9 @@
-package com.mastertech.cartoesapp.converter;
+package com.mastertech.cartoesapp.cliente.converter;
 
 import org.springframework.stereotype.Component;
 
-import com.mastertech.cartoesapp.dto.ClienteDTO;
-import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cliente.dto.ClienteDTO;
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
 
 @Component
 public class ClienteConverter {

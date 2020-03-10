@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.entity;
+package com.mastertech.cartoesapp.pagamento.entity;
 
 import java.math.BigDecimal;
 
@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
 
 @Entity
 @Table (name = "pagamento")

@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.controller;
+package com.mastertech.cartoesapp.pagamento.controller;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mastertech.cartoesapp.converter.PagamentoConverter;
-import com.mastertech.cartoesapp.dto.PagamentoDTO;
-import com.mastertech.cartoesapp.entity.PagamentoEntity;
 import com.mastertech.cartoesapp.exception.CartaoInativoException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
-import com.mastertech.cartoesapp.service.PagamentoService;
+import com.mastertech.cartoesapp.pagamento.converter.PagamentoConverter;
+import com.mastertech.cartoesapp.pagamento.dto.PagamentoDTO;
+import com.mastertech.cartoesapp.pagamento.entity.PagamentoEntity;
+import com.mastertech.cartoesapp.pagamento.service.PagamentoService;
 
 @RestController
 @RequestMapping("/pagamento")

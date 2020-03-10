@@ -1,10 +1,10 @@
-package com.mastertech.cartoesapp.converter;
+package com.mastertech.cartoesapp.cartao.converter;
 
 import org.springframework.stereotype.Component;
 
-import com.mastertech.cartoesapp.dto.CartaoDTO;
-import com.mastertech.cartoesapp.entity.CartaoEntity;
-import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.cartao.dto.CartaoDTO;
+import com.mastertech.cartoesapp.cartao.entity.CartaoEntity;
+import com.mastertech.cartoesapp.cliente.entity.ClienteEntity;
 
 @Component
 public class CartaoConverter {
@@ -16,16 +16,6 @@ public class CartaoConverter {
 		ClienteEntity cliente = new ClienteEntity();
 		cliente.setId(dto.getClienteId());
 		
-		entity.setCliente(cliente);
-		entity.setNumero(dto.getNumero());
-		
-		return entity;   
-	}
-	
-	public CartaoEntity convertFromDtoToEntity (CartaoDTO dto, ClienteEntity cliente){
-		CartaoEntity entity = new CartaoEntity();
-		
-		entity.setAtivo(Boolean.FALSE);
 		entity.setCliente(cliente);
 		entity.setNumero(dto.getNumero());
 		

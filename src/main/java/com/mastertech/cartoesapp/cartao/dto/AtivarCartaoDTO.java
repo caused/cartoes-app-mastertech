@@ -1,4 +1,4 @@
-package com.mastertech.cartoesapp.dto;
+package com.mastertech.cartoesapp.cartao.dto;
 
 public class AtivarCartaoDTO {
 
