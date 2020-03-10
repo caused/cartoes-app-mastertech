@@ -40,14 +40,14 @@ public class MastertechExceptionHandler extends ResponseEntityExceptionHandler{
 		return handleExceptionInternal(ex,erros , headers, HttpStatus.BAD_REQUEST, request);
 	}
 	
-	@ExceptionHandler({UsuarioNaoExisteException.class})
-	public ResponseEntity<Object> handleEmptyResultDataAccessException(UsuarioNaoExisteException ex, WebRequest request){
+	@ExceptionHandler({ClienteNaoEncontradoException.class})
+	public ResponseEntity<Object> handleEmptyResultDataAccessException(ClienteNaoEncontradoException ex, WebRequest request){
 		
 		List<Error> erros = new ArrayList<Error>();
 		
 		erros.add(new Error(ex.getMensagem()));
 		
-		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.BAD_REQUEST, request);
+		return handleExceptionInternal(ex, erros, new HttpHeaders(), HttpStatus.NOT_FOUND, request);
 	}
 	
 	@ExceptionHandler({CartaoNaoExisteException.class})

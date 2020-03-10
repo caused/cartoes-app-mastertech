@@ -18,42 +18,42 @@ import com.mastertech.cartoesapp.dto.CartaoDTO;
 import com.mastertech.cartoesapp.entity.CartaoEntity;
 import com.mastertech.cartoesapp.exception.CartaoExistenteException;
 import com.mastertech.cartoesapp.exception.CartaoNaoExisteException;
-import com.mastertech.cartoesapp.exception.UsuarioNaoExisteException;
+import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
 import com.mastertech.cartoesapp.service.CartaoService;
 
 @RestController
 @RequestMapping("/cartao")
 public class CartaoController {
 	
-	private CartaoConverter converter;
 	private CartaoService service;
+	private CartaoConverter converter;
 	
-	public CartaoController (CartaoConverter converter, CartaoService service) {
-		this.converter = converter;
+	public CartaoController (CartaoService service, CartaoConverter converter) {
 		this.service = service;
+		this.converter = converter;
 	}
 
 	@PostMapping
-	public ResponseEntity<CartaoDTO> criarCartao (@Valid @RequestBody CartaoDTO cartao) throws UsuarioNaoExisteException, CartaoExistenteException {
+	public ResponseEntity<CartaoDTO> criarCartao (@Valid @RequestBody CartaoDTO cartao) throws ClienteNaoEncontradoException, CartaoExistenteException {
 		CartaoEntity entity = this.converter.convertFromDtoToEntity(cartao);
 		
-		CartaoDTO cartaoCriado = service.criarCartao(entity);
+		CartaoEntity cartaoEntity = service.criarCartao(entity);
 		
-		return ResponseEntity.status(HttpStatus.CREATED).body(cartaoCriado);
+		return ResponseEntity.status(HttpStatus.CREATED).body(converter.convertFromEntityToDto(cartaoEntity));
 	}
 	
 	@PatchMapping("/{numero}")
 	public ResponseEntity<CartaoDTO> ativarCartao (@PathVariable String numero, @RequestBody AtivarCartaoDTO cartao) throws CartaoNaoExisteException{
-		CartaoDTO cartaoDTO = this.service.ativarCartao(numero, cartao);
+		CartaoEntity cartaoEntity = this.service.ativarCartao(numero, cartao);
 		
-		return ResponseEntity.ok(cartaoDTO);
+		return ResponseEntity.ok(converter.convertFromEntityToDto(cartaoEntity));
 	}
 	
 	@GetMapping("/{numero}")
 	public ResponseEntity<CartaoDTO> obterCartaoPorNumero (@PathVariable String numero) throws CartaoNaoExisteException {
-		CartaoDTO cartaoDTO = this.service.obterPorId(numero);
+		CartaoEntity cartaoEntity = this.service.obterPorNumero(numero);
 		
-		return ResponseEntity.ok(cartaoDTO);
+		return ResponseEntity.ok(converter.convertFromEntityToDto(cartaoEntity));
 	}
 	
 }

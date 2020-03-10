@@ -1,36 +1,33 @@
 package com.mastertech.cartoesapp.converter;
 
-import java.util.Optional;
-
 import org.springframework.stereotype.Component;
 
 import com.mastertech.cartoesapp.dto.CartaoDTO;
 import com.mastertech.cartoesapp.entity.CartaoEntity;
 import com.mastertech.cartoesapp.entity.ClienteEntity;
-import com.mastertech.cartoesapp.exception.UsuarioNaoExisteException;
-import com.mastertech.cartoesapp.repository.ClienteRepository;
 
 @Component
 public class CartaoConverter {
 	
-	private ClienteRepository clienteRepository;
 	
-	public CartaoConverter (ClienteRepository clienteRepository) {
-		this.clienteRepository = clienteRepository;
-	}
-
-	
-	public CartaoEntity convertFromDtoToEntity (CartaoDTO dto) throws UsuarioNaoExisteException {
+	public CartaoEntity convertFromDtoToEntity (CartaoDTO dto){
 		CartaoEntity entity = new CartaoEntity();
 		
-		Optional<ClienteEntity> clienteOptional = clienteRepository.findById(dto.getClienteId());
-		
-		if(!clienteOptional.isPresent()) {
-			throw new UsuarioNaoExisteException("Usuário não encontrado");
-		}
+		ClienteEntity cliente = new ClienteEntity();
+		cliente.setId(dto.getClienteId());
 		
 		entity.setAtivo(Boolean.FALSE);
-		entity.setCliente(clienteOptional.get());
+		entity.setCliente(cliente);
+		entity.setNumero(dto.getNumero());
+		
+		return entity;   
+	}
+	
+	public CartaoEntity convertFromDtoToEntity (CartaoDTO dto, ClienteEntity cliente){
+		CartaoEntity entity = new CartaoEntity();
+		
+		entity.setAtivo(Boolean.FALSE);
+		entity.setCliente(cliente);
 		entity.setNumero(dto.getNumero());
 		
 		return entity;   

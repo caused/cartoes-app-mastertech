@@ -4,35 +4,30 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.mastertech.cartoesapp.converter.ClienteConverter;
-import com.mastertech.cartoesapp.dto.ClienteDTO;
-import com.mastertech.cartoesapp.repository.ClienteRepository;
 import com.mastertech.cartoesapp.entity.ClienteEntity;
+import com.mastertech.cartoesapp.exception.ClienteNaoEncontradoException;
+import com.mastertech.cartoesapp.repository.ClienteRepository;
 
 @Service
 public class ClienteService {
 
 	private ClienteRepository repository;
-	private ClienteConverter converter;
 	
-	public ClienteService(ClienteRepository repository, ClienteConverter converter) {
+	public ClienteService(ClienteRepository repository) {
 		this.repository = repository;
-		this.converter = converter;
 	}
 	
-	public ClienteDTO criar(ClienteDTO cliente) {
-		ClienteEntity entity = converter.convertFromDtoToEntity(cliente);
-		
-		entity = repository.save(entity);
-		
-		return converter.convertFromEntityToDto(entity);
+	public ClienteEntity criar(ClienteEntity cliente) {
+		return repository.save(cliente);
 	}
 	
-	public ClienteDTO obterClientePorId(Long id) {
+	public ClienteEntity obterClientePorId(Long id) throws ClienteNaoEncontradoException {
 		Optional<ClienteEntity> clienteOptional = repository.findById(id);
 		
-		return clienteOptional.isPresent() 
-				? converter.convertFromEntityToDto(clienteOptional.get())
-				:	null;
+		if(!clienteOptional.isPresent()) {
+			throw new ClienteNaoEncontradoException("Cliente não existe");
+		}
+		
+		return clienteOptional.get();
 	}
 }
