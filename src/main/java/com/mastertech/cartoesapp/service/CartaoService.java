@@ -29,6 +29,7 @@ public class CartaoService {
 		ClienteEntity clienteEntity = clienteService.obterClientePorId(cartao.getCliente().getId());
 		
 		cartao.setCliente(clienteEntity);
+		cartao.setAtivo(Boolean.FALSE);
 		
 		CartaoEntity cartaoEntity = cartaoRepository.findByNumero(cartao.getNumero());
 		

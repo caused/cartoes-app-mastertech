@@ -16,7 +16,6 @@ public class CartaoConverter {
 		ClienteEntity cliente = new ClienteEntity();
 		cliente.setId(dto.getClienteId());
 		
-		entity.setAtivo(Boolean.FALSE);
 		entity.setCliente(cliente);
 		entity.setNumero(dto.getNumero());
 		
